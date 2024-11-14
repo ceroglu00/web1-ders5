@@ -7,7 +7,7 @@
   </section>
 
   <section name="Canavarın Htmli" class="mt-16 mx-14">
-    <p class="Başlık mb-2">Canavar</p>
+    <p class="Başlık mb-2">Canavarımsı</p>
     <v-progress-linear v-model="canavar.can" height="40" color="green"></v-progress-linear>
   </section>
 
@@ -30,7 +30,7 @@ var oyuncu = ref({
 });
 
 var canavar = ref({
-  can: 95,
+  can: 130,
   saldırıGücü:300,
   kalkan:600,
 });
