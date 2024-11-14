@@ -30,7 +30,7 @@ var oyuncu = ref({
 });
 
 var canavar = ref({
-  can: 130,
+  can: 150,
   saldırıGücü:300,
   kalkan:600,
 });
