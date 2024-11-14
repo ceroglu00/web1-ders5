@@ -4,19 +4,25 @@
   <section name="Oyuncunun Htmli" class="mt-16 mx-14">
     <p class="Başlık mb-2">Oyuncu</p>
     <v-progress-linear v-model="oyuncu.can" height="40" color="green">
-      {{oyuncu.can}}
+      <span class="ProgressBarHpValue">
+        {{oyuncu.can}}
+      </span>
     </v-progress-linear>
   </section>
 
   <section name="Canavarın Htmli" class="mt-16 mx-14">
     <p class="Başlık mb-2">Canavarımsı</p>
-    <v-progress-linear v-model="canavar.can" height="40" color="green"></v-progress-linear>
+    <v-progress-linear v-model="canavar.can" height="40" color="green">
+      <span class="ProgressBarHpValue">
+        {{canavar.can}}
+      </span>
+    </v-progress-linear>
   </section>
 
   <section name="Tuşlar" class="text-center mt-7 mx-14">
     <v-btn @click="OyuncuAtak" class="bg-purple mt-1" block size="large">Saldır</v-btn>
-    <v-btn class="bg-purple mt-1" block size="large">Pot Bas</v-btn>
-    <v-btn class="bg-purple mt-1" block size="large">Özel Atak Yap</v-btn>
+    <v-btn @click="PotBas" class="bg-purple mt-1" block size="large">Pot Bas</v-btn>
+    <v-btn @click="ÖzelAtak" class="bg-purple mt-1" block size="large">Özel Atak Yap</v-btn>
 
   </section>
 </template>
@@ -50,6 +56,15 @@ function CanavarAtak() {
   oyuncu.value.can -= RandomSayıÜret(5,15);
 }
 
+function PotBas() {
+  oyuncu.value.can += RandomSayıÜret(4,14);
+  CanavarAtak();
+}
+
+function ÖzelAtak() {
+  canavar.value.can -= RandomSayıÜret(10,20);
+  CanavarAtak();
+}
 
 </script>
 
@@ -59,8 +74,11 @@ function CanavarAtak() {
   font-weight: 400;
   font-family: Impact, sans-serif;
 }
-
 .Başlık {
+  font-size: 30px;
+  font-weight: bold;
+}
+.ProgressBarHpValue{
   font-size: 30px;
   font-weight: bold;
 }
